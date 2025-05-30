@@ -14,7 +14,7 @@ function LabPostPreview({
   excerpt,
 }: LabPostPreviewProps) {
   return (
-    <div className="flex flex-col gap-4 border-1 border-gray-300 rounded-md p-4">
+    <div className="flex flex-col gap-4 border border-gray-300 rounded-md p-4">
       <dl className="flex flex-col gap-2">
         <dt className="text-sm font-medium">Title</dt>
         <dd className="text-sm">{title}</dd>
