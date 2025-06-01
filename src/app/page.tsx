@@ -11,7 +11,7 @@ export default function Home() {
             <li key={id}>
               <LabPostPreview
                 title={title}
-                tag={tags}
+                tags={tags}
                 publishedDate={publishedAt}
                 excerpt={excerpt}
               />
