@@ -3,10 +3,6 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content?: string; // Full content for detail page
-  author: {
-    name: string;
-    avatar?: string;
-  };
   publishedAt: string; // ISO date string
   readTime: number; // minutes
   category: string;
