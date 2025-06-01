@@ -13,13 +13,11 @@ function LabPostPreview({
   publishedDate,
   excerpt,
 }: LabPostPreviewProps) {
-  const formattedDate = new Date(publishedDate)
-    .toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    })
-    .replace(/\//g, "/");
+  const formattedDate = new Date(publishedDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
 
   return (
     <article className="flex flex-col gap-2 p-4 w-full">
