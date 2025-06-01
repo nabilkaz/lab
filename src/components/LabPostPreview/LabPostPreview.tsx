@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "motion/react";
 
 export interface LabPostPreviewProps {
   title: string;
@@ -20,7 +22,11 @@ function LabPostPreview({
   });
 
   return (
-    <article className="flex flex-col gap-2 p-4 w-full">
+    <motion.article
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.99 }}
+      className="flex flex-col gap-2 p-4 w-full"
+    >
       <div className="flex flex-row justify-between items-start">
         <time
           className="text-sm text-gray-500 w-[120px]"
@@ -43,7 +49,7 @@ function LabPostPreview({
           ))}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
