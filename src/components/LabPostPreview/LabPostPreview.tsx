@@ -1,15 +1,17 @@
+"use client";
 import React from "react";
+import { motion } from "motion/react";
 
 export interface LabPostPreviewProps {
   title: string;
-  tag: string[];
+  tags: string[];
   publishedDate: string;
   excerpt: string;
 }
 
 function LabPostPreview({
   title,
-  tag,
+  tags,
   publishedDate,
   excerpt,
 }: LabPostPreviewProps) {
@@ -20,7 +22,11 @@ function LabPostPreview({
   });
 
   return (
-    <article className="flex flex-col gap-2 p-4 w-full">
+    <motion.article
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.99 }}
+      className="flex flex-col gap-2 p-4 w-full"
+    >
       <div className="flex flex-row justify-between items-start">
         <time
           className="text-sm text-gray-500 w-[120px]"
@@ -33,7 +39,7 @@ function LabPostPreview({
           <p className="text-sm text-gray-500 line-clamp-2">{excerpt}</p>
         </div>
         <div className="flex flex-row gap-1 w-[120px] justify-end">
-          {tag.map((t) => (
+          {tags.map((t) => (
             <span
               key={t}
               className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full hover:bg-gray-200 transition-colors"
@@ -43,7 +49,7 @@ function LabPostPreview({
           ))}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
