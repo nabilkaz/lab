@@ -1,6 +1,6 @@
 import React from "react";
 
-interface LabPostPreviewProps {
+export interface LabPostPreviewProps {
   title: string;
   tag: string;
   publishedDate: string;
