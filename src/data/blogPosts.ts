@@ -1,4 +1,4 @@
-import { BlogPost } from "@/types";
+import BlogPost from "@/types/blog";
 
 export const mockBlogPosts: BlogPost[] = [
   {
@@ -7,7 +7,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt: "This is my first post",
     publishedAt: "2021-01-01",
     readTime: 5,
-    category: "Technology",
+    category: "musing",
     tags: ["JavaScript", "React"],
     status: "published",
     slug: "my-first-post",
@@ -18,7 +18,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt: "This is my second post",
     publishedAt: "2021-01-02",
     readTime: 10,
-    category: "Design",
+    category: "note",
     tags: ["UI/UX", "Design"],
     status: "published",
     slug: "my-second-post",
@@ -29,7 +29,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt: "This is my third post",
     publishedAt: "2021-01-03",
     readTime: 15,
-    category: "Business",
+    category: "experiment",
     tags: ["Marketing", "Growth"],
     status: "published",
     slug: "my-third-post",
@@ -40,7 +40,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt: "This is my fourth post",
     publishedAt: "2021-01-04",
     readTime: 20,
-    category: "Science",
+    category: "project",
     tags: ["Physics", "Chemistry"],
     status: "published",
     slug: "my-fourth-post",
@@ -51,7 +51,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt: "This is my fifth post",
     publishedAt: "2021-01-05",
     readTime: 25,
-    category: "Health",
+    category: "musing",
     tags: ["Fitness", "Wellness"],
     status: "published",
     slug: "my-fifth-post",

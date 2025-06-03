@@ -5,9 +5,10 @@ export interface BlogPost {
   content?: string; // Full content for detail page
   publishedAt: string; // ISO date string
   readTime: number; // minutes
-  category: string;
+  category: "experiment" | "note" | "project" | "musing";
   tags: string[];
   status: "draft" | "published" | "archived";
   featured?: boolean;
   slug: string; // URL-friendly version
 }
+export default BlogPost;
