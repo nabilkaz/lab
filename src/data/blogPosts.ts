@@ -1,4 +1,4 @@
-import BlogPost from "@/types/Blog";
+import BlogPost from "@/types/blog";
 
 export const mockBlogPosts: BlogPost[] = [
   {
