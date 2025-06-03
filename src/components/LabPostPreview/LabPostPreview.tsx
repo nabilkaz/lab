@@ -1,20 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-
-export interface LabPostPreviewProps {
-  title: string;
-  tags: string[];
-  publishedDate: string;
-  excerpt: string;
-}
+import type BlogPreviewProps from "@/types/blogPreview";
 
 function LabPostPreview({
   title,
   tags,
   publishedDate,
   excerpt,
-}: LabPostPreviewProps) {
+}: BlogPreviewProps) {
   const formattedDate = new Date(publishedDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "2-digit",
