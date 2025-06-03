@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-import BlogPreviewProps from "@/types/blogPreview";
+import type BlogPreviewProps from "@/types/blogPreview";
 
 function LabPostPreview({
   title,
