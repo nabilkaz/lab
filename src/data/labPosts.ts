@@ -1,4 +1,4 @@
-import BlogPreviewProps from "@/types/blogPreview";
+import type BlogPreviewProps from "@/types/blogPreview";
 
 export interface LabPost extends BlogPreviewProps {
   id: string;
