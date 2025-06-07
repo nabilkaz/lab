@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-import type BlogPreviewProps from "@/types/blogPreview";
+import type LabPostPreviewProps from "@/components/LabPostPreview/LabPostPreview.type";
 
 function LabPostPreview({
   title,
   tags,
   publishedDate,
   excerpt,
-}: BlogPreviewProps) {
+  ...delegated
+}: LabPostPreviewProps) {
   const formattedDate = new Date(publishedDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "2-digit",
@@ -20,6 +21,7 @@ function LabPostPreview({
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.99 }}
       className="flex flex-col gap-2 p-4 w-full"
+      {...delegated}
     >
       <div className="flex flex-row justify-between items-start">
         <time
