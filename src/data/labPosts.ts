@@ -1,6 +1,6 @@
-import type BlogPreviewProps from "@/components/LabPostPreview/LabPostPreview.type";
+import type LabPostPreviewProps from "@/components/LabPostPreview/LabPostPreview.type";
 
-export interface LabPost extends BlogPreviewProps {
+export interface LabPost extends LabPostPreviewProps {
   id: string;
 }
 
