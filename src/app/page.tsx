@@ -1,6 +1,6 @@
 import LabPostPreview from "@/components/LabPostPreview/LabPostPreview";
 import { mockBlogPosts } from "@/data/blogPosts";
-import BlogPost from "@/types/blog.types";
+import BlogPost from "@/types";
 
 export default function Home() {
   return (
