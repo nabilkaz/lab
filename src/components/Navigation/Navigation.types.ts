@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-export type NavigationLinkProps = ComponentProps<"a"> & {
+export type NavigationItemProps = ComponentProps<"a"> & {
   active?: boolean;
   children: React.ReactNode;
 };
