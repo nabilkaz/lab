@@ -59,12 +59,9 @@ export const mockBlogPosts: BlogPost[] = [
 ];
 
 export function getUniqueTags(posts: BlogPost[]): string[] {
-  return posts.reduce<string[]>((acc, { tags }) => {
-    tags.forEach((tag) => {
-      if (!acc.includes(tag)) {
-        acc.push(tag);
-      }
-    });
-    return acc;
-  }, []);
+  const uniqueTags = new Set<string>();
+  posts.forEach(({ tags }) => {
+    tags.forEach((tag) => uniqueTags.add(tag));
+  });
+  return Array.from(uniqueTags);
 }
