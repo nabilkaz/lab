@@ -19,7 +19,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2021-01-02",
     readTime: 10,
     category: "note",
-    tags: ["UI/UX", "Design"],
+    tags: ["Design", "React"],
     status: "published",
     slug: "my-second-post",
   },
@@ -30,7 +30,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2021-01-03",
     readTime: 15,
     category: "experiment",
-    tags: ["Marketing", "Growth"],
+    tags: ["JavaScript", "Design"],
     status: "published",
     slug: "my-third-post",
   },
@@ -41,7 +41,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2021-01-04",
     readTime: 20,
     category: "project",
-    tags: ["Physics", "Chemistry"],
+    tags: ["React", "Design"],
     status: "published",
     slug: "my-fourth-post",
   },
@@ -52,8 +52,16 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2021-01-05",
     readTime: 25,
     category: "musing",
-    tags: ["Fitness", "Wellness"],
+    tags: ["JavaScript"],
     status: "published",
     slug: "my-fifth-post",
   },
 ];
+
+export function getUniqueTags(posts: BlogPost[]): string[] {
+  const uniqueTags = new Set<string>();
+  posts.forEach(({ tags }) => {
+    tags.forEach((tag) => uniqueTags.add(tag));
+  });
+  return Array.from(uniqueTags);
+}
