@@ -7,6 +7,7 @@ import {
   FilterContainerProps,
 } from "./Filter.type";
 import { BlogPost } from "@/types";
+import { getUniqueTags } from "@/data/blogPosts";
 
 // Generic filter component that works with any list
 export function GenericFilter<T>({
