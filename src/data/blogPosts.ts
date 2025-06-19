@@ -57,3 +57,14 @@ export const mockBlogPosts: BlogPost[] = [
     slug: "my-fifth-post",
   },
 ];
+
+export function getUniqueTags(posts: BlogPost[]): string[] {
+  return posts.reduce<string[]>((acc, { tags }) => {
+    tags.forEach((tag) => {
+      if (!acc.includes(tag)) {
+        acc.push(tag);
+      }
+    });
+    return acc;
+  }, []);
+}
