@@ -74,16 +74,7 @@ export function GenericFilter<T>({
 
 // Specific implementation for blog posts
 export function BlogPostFilter({ posts, onFilterChange }: BlogPostFilterProps) {
-  const getCategories = (items: BlogPost[]) => {
-    return items.reduce<string[]>((acc, { tags }) => {
-      tags.forEach((tag) => {
-        if (!acc.includes(tag)) {
-          acc.push(tag);
-        }
-      });
-      return acc;
-    }, []);
-  };
+  const getCategories = getUniqueTags;
 
   const getItemCategories = (post: BlogPost) => post.tags;
 
