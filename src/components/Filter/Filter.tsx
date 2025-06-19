@@ -35,9 +35,9 @@ export function GenericFilter<T>({
       setActiveCategories(newActiveCategories);
 
       const filteredItems = items.filter((item) => {
-        const itemCategories = getItemCategories(item);
+        const itemCategories = new Set(getItemCategories(item));
         return newActiveCategories.some((activeCat) =>
-          itemCategories.includes(activeCat)
+          itemCategories.has(activeCat)
         );
       });
 
