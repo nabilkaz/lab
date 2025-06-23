@@ -5,7 +5,7 @@ import {
   BlogPostFilterProps,
   FilterClearProps,
   FilterContainerProps,
-} from "./Filter.type";
+} from "./Filter.types";
 import { BlogPost } from "@/types";
 import { getUniqueTags } from "@/data/blogPosts";
 
