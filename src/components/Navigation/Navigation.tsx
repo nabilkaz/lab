@@ -1,5 +1,9 @@
 import React, { ComponentProps } from "react";
-import { NavigationItemProps } from "./Navigation.types";
+
+type NavigationItemProps = ComponentProps<"a"> & {
+  active?: boolean;
+  children: React.ReactNode;
+};
 
 function NavBar({ children, ...delegate }: ComponentProps<"nav">) {
   return (
