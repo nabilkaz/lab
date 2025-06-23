@@ -5,6 +5,8 @@ import NavBar, {
   NavigationItem,
   NavigationList,
 } from "@/components/Navigation/Navigation";
+import { SearchContainer } from "@/components/Search/Search";
+import SearchInput from "@/components/Search/Search";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,13 +35,16 @@ export default function RootLayout({
       >
         <div className="min-h-screen p-8 pb-20 sm:p-20">
           <div className="max-w-[680px] mx-auto">
-            <NavBar className="w-full mb-12">
+            <NavBar className="w-full mb-12 flex justify-between items-center">
               <NavigationList>
                 <NavigationItem>Experiments</NavigationItem>
                 <NavigationItem active={true}>Notes</NavigationItem>
                 <NavigationItem>Projects</NavigationItem>
                 <NavigationItem>About</NavigationItem>
               </NavigationList>
+              <SearchContainer>
+                <SearchInput />
+              </SearchContainer>
             </NavBar>
             {children}
           </div>
