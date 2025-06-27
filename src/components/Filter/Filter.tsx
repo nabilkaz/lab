@@ -90,7 +90,7 @@ export function BlogPostFilter({ posts, onFilterChange }: BlogPostFilterProps) {
 }
 
 export default function FilterContainer({ children }: FilterContainerProps) {
-  return <div className="flex flex-row gap-4">{children}</div>;
+  return <div className="flex flex-row gap-6 items-end">{children}</div>;
 }
 
 export function FilterButton({
@@ -101,8 +101,10 @@ export function FilterButton({
 }: FilterButtonProps) {
   return (
     <button
-      className={`text-sm font-medium px-4 py-2 rounded-md transition-colors ${
-        active ? "bg-gray-100" : "hover:bg-gray-100"
+      className={`text-sm font-medium pb-1 border-b-2 transition-all text-left ${
+        active
+          ? "border-gray-950 text-gray-950"
+          : "border-transparent text-gray-700 hover:border-gray-400 hover:text-gray-950"
       }`}
       onClick={() => {
         onFilter(category);
@@ -117,7 +119,7 @@ export function FilterButton({
 export function FilterClear({ onClick }: FilterClearProps) {
   return (
     <button
-      className="text-sm font-medium px-4 py-2 rounded-md transition-colors"
+      className="text-sm font-normal pb-1 border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 transition-all text-left"
       onClick={onClick}
     >
       {/* TODO: Add a clear icon to the filter clear button */}

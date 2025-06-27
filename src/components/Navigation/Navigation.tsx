@@ -7,7 +7,7 @@ type NavigationItemProps = ComponentProps<"a"> & {
 
 function NavBar({ children, ...delegate }: ComponentProps<"nav">) {
   return (
-    <nav className="w-full max-w-[680px] px-4 sm:px-0" {...delegate}>
+    <nav className="w-full max-w-[680px]" {...delegate}>
       {children}
     </nav>
   );
@@ -29,8 +29,10 @@ export function NavigationItem({
 }: NavigationItemProps) {
   return (
     <li
-      className={`text-sm font-medium px-4 py-2 rounded-md transition-colors w-full sm:w-auto text-center sm:text-left ${
-        active ? "bg-gray-100" : "hover:bg-gray-100"
+      className={`text-sm font-medium pb-1 border-b-2 transition-all w-full sm:w-auto text-center sm:text-left ${
+        active
+          ? "border-gray-950 text-gray-950"
+          : "border-transparent text-gray-700 hover:border-gray-400 hover:text-gray-950"
       }`}
     >
       <a>{children}</a>

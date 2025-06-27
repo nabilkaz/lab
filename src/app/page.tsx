@@ -11,9 +11,11 @@ export default function Home() {
 
   return (
     <main className="flex flex-col">
-      <h1 className="text-lg font-bold ml-4 mb-2 w-[120px]">Notes</h1>
+      <h1 className="text-lg font-semibold text-gray-950 mb-3 w-[120px]">
+        Notes
+      </h1>
       <BlogPostFilter posts={mockBlogPosts} onFilterChange={setFilteredPosts} />
-      <ul className="w-full space-y-4 mt-6">
+      <ul className="w-full space-y-6 mt-8">
         {filteredPosts.map(
           ({ id, title, tags, publishedAt, excerpt }: BlogPost) => (
             <li key={id}>
