@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/types";
+import { Category } from "@/types/blog.types";
 
 export const mockBlogPosts: BlogPost[] = [
   {
@@ -83,8 +84,8 @@ export function getUniqueTags(posts: BlogPost[]): string[] {
   return Array.from(uniqueTags);
 }
 
-export function getUniqueCategories(posts: BlogPost[]): string[] {
-  const uniqueCategories = new Set<string>();
+export function getUniqueCategories(posts: BlogPost[]): Category[] {
+  const uniqueCategories = new Set<Category>();
   posts.forEach(({ category }) => {
     uniqueCategories.add(category);
   });
