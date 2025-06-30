@@ -1,5 +1,5 @@
 export type Status = "loading" | "success" | "error";
-export type Category = "experiment" | "note" | "project" | "musing";
+export type Category = "explore" | "understand" | "apply" | "teach";
 export type Theme = "light" | "dark";
 
 export interface BlogPost {

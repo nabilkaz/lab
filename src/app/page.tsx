@@ -16,8 +16,13 @@ export default function Home() {
       </h1>
       <BlogPostFilter posts={mockBlogPosts} onFilterChange={setFilteredPosts} />
       <ul className="w-full space-y-6 mt-8">
-        {filteredPosts.map(
-          ({ id, title, tags, publishedAt, excerpt }: BlogPost) => (
+        {filteredPosts
+          .sort(
+            (a, b) =>
+              new Date(b.publishedAt).getTime() -
+              new Date(a.publishedAt).getTime()
+          )
+          .map(({ id, title, tags, publishedAt, excerpt }: BlogPost) => (
             <li key={id}>
               <LabPostPreview
                 title={title}
@@ -26,8 +31,7 @@ export default function Home() {
                 excerpt={excerpt}
               />
             </li>
-          )
-        )}
+          ))}
       </ul>
     </main>
   );
