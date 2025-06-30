@@ -24,29 +24,26 @@ function LabPostPreview({
       {...delegated}
     >
       <div className="flex flex-row justify-between items-start">
-        <time
-          className="text-sm text-gray-400 font-light w-[120px]"
-          dateTime={publishedDate}
-        >
+        <time className="text-sm w-[120px]" dateTime={publishedDate}>
           {formattedDate}
         </time>
-        <div className="flex flex-col flex-1 px-2">
-          <h2 className="text-sm font-medium text-gray-950 leading-snug">
+        <div className="flex flex-col flex-1 pl-3">
+          <h2 className="text-sm font-bold text-gray-950 leading-snug">
             {title}
           </h2>
-          <p className="text-sm text-gray-700 leading-relaxed line-clamp-2 mt-1">
+          <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 mt-1">
             {excerpt}
           </p>
-        </div>
-        <div className="flex flex-row gap-1 w-[120px] justify-end">
-          {tags.map((t) => (
-            <span
-              key={t}
-              className="text-xs text-gray-500 font-light bg-gray-100 px-2 py-0.5 rounded-full hover:bg-gray-200 transition-colors"
-            >
-              {t}
-            </span>
-          ))}
+          <div className="flex flex-wrap gap-1 mt-2">
+            {tags.map((t) => (
+              <span
+                key={t}
+                className="text-xs text-gray-500 font-light bg-gray-100 px-2 py-0.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </motion.article>

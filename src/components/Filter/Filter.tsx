@@ -7,7 +7,12 @@ import {
   FilterContainerProps,
 } from "./Filter.types";
 import { BlogPost } from "@/types";
-import { getUniqueTags } from "@/data/blogPosts";
+import { getUniqueCategories } from "@/data/blogPosts";
+
+// Helper function to capitalize first letter
+const capitalizeFirst = (str: string): string => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
 
 // Generic filter component that works with any list
 export function GenericFilter<T>({
@@ -20,7 +25,7 @@ export function GenericFilter<T>({
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [isAllActive, setIsAllActive] = useState(true);
 
-  const handleFilter = (category: string) => {
+  const handleFilter = (category: string): void => {
     if (category === "all") {
       // All button: activate all categories, deactivate individual ones
       setIsAllActive(true);
@@ -46,7 +51,7 @@ export function GenericFilter<T>({
     }
   };
 
-  const handleClear = () => {
+  const handleClear = (): void => {
     // Clear button: activate All, deactivate all individual categories
     setIsAllActive(true);
     setActiveCategories([]);
@@ -65,7 +70,7 @@ export function GenericFilter<T>({
           onFilter={handleFilter}
           active={!isAllActive && activeCategories.includes(category)}
         >
-          {category}
+          {capitalizeFirst(category)}
         </FilterButton>
       ))}
       <FilterClear onClick={handleClear} />
@@ -75,9 +80,9 @@ export function GenericFilter<T>({
 
 // Specific implementation for blog posts
 export function BlogPostFilter({ posts, onFilterChange }: BlogPostFilterProps) {
-  const getCategories = getUniqueTags;
+  const getCategories = getUniqueCategories;
 
-  const getItemCategories = (post: BlogPost) => post.tags;
+  const getItemCategories = (post: BlogPost) => [post.category];
 
   return (
     <GenericFilter
@@ -90,7 +95,7 @@ export function BlogPostFilter({ posts, onFilterChange }: BlogPostFilterProps) {
 }
 
 export default function FilterContainer({ children }: FilterContainerProps) {
-  return <div className="flex flex-row gap-6 items-end">{children}</div>;
+  return <div className="flex flex-row gap-4 items-end">{children}</div>;
 }
 
 export function FilterButton({
@@ -106,7 +111,7 @@ export function FilterButton({
           ? "border-gray-950 text-gray-950"
           : "border-transparent text-gray-700 hover:border-gray-400 hover:text-gray-950"
       }`}
-      onClick={() => {
+      onClick={(): void => {
         onFilter(category);
       }}
     >
@@ -120,7 +125,9 @@ export function FilterClear({ onClick }: FilterClearProps) {
   return (
     <button
       className="text-sm font-normal pb-1 border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 transition-all text-left"
-      onClick={onClick}
+      onClick={(): void => {
+        onClick();
+      }}
     >
       {/* TODO: Add a clear icon to the filter clear button */}
       Clear
