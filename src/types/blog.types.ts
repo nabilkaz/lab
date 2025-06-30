@@ -1,3 +1,7 @@
+export type Status = "loading" | "success" | "error";
+export type Category = "experiment" | "note" | "project" | "musing";
+export type Theme = "light" | "dark";
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -5,7 +9,7 @@ export interface BlogPost {
   content?: string; // Full content for detail page
   publishedAt: string; // ISO date string
   readTime: number; // minutes
-  category: "experiment" | "note" | "project" | "musing";
+  category: Category;
   tags: string[];
   status: "draft" | "published" | "archived";
   featured?: boolean;
