@@ -23,11 +23,8 @@ function LabPostPreview({
       className="flex flex-col gap-3 w-full"
       {...delegated}
     >
-      <div className="flex flex-row justify-between items-start">
-        <time className="text-sm w-[120px]" dateTime={publishedDate}>
-          {formattedDate}
-        </time>
-        <div className="flex flex-col flex-1 pl-3">
+      <div className="flex flex-row items-start w-full">
+        <div className="flex flex-col flex-1 pl-0">
           <h2 className="text-sm font-bold text-gray-950 leading-snug">
             {title}
           </h2>
@@ -45,6 +42,12 @@ function LabPostPreview({
             ))}
           </div>
         </div>
+        <time
+          className="text-sm w-[120px] text-right ml-4"
+          dateTime={publishedDate}
+        >
+          {formattedDate}
+        </time>
       </div>
     </motion.article>
   );
