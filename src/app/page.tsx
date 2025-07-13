@@ -1,36 +1,30 @@
-"use client";
 import React from "react";
 import LabPostPreview from "@/components/LabPostPreview/LabPostPreview";
 import { mockBlogPosts } from "@/data/blogPosts";
 import type { BlogPost } from "@/types";
 import { BlogPostFilter } from "@/components/Filter/Filter";
+import { TITLE } from "@/constants";
+import { Metadata } from "next";
+import FilterableBlogPostList from "@/components/FilterableBlogPostList/FilterableBlogPostList";
+import { getBlogPostList } from "@/helpers/file-helpers";
 
-export default function Home() {
-  const [filteredPosts, setFilteredPosts] =
-    React.useState<BlogPost[]>(mockBlogPosts);
+export const metadata: Metadata = {
+  title: TITLE,
+  description: "Collection of my notes and thoughts",
+  openGraph: {
+    title: TITLE,
+    description: "Collection of my notes and thoughts",
+    type: "website",
+  },
+};
+
+export default async function Home() {
+  const blogPosts = await getBlogPostList();
 
   return (
     <main className="flex flex-col">
       <h1 className="text-lg font-semibold text-gray-950 mb-3">Notes</h1>
-      <BlogPostFilter posts={mockBlogPosts} onFilterChange={setFilteredPosts} />
-      <ul className="space-y-6 mt-8">
-        {filteredPosts
-          .sort(
-            (a, b) =>
-              new Date(b.publishedAt).getTime() -
-              new Date(a.publishedAt).getTime()
-          )
-          .map(({ id, title, tags, publishedAt, excerpt }: BlogPost) => (
-            <li key={id}>
-              <LabPostPreview
-                title={title}
-                tags={tags}
-                publishedDate={publishedAt}
-                excerpt={excerpt}
-              />
-            </li>
-          ))}
-      </ul>
+      <FilterableBlogPostList mockBlogPosts={blogPosts} />
     </main>
   );
 }
