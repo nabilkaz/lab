@@ -1,10 +1,11 @@
 import LabPostPreview from "@/components/LabPostPreview/LabPostPreview";
-import { getUniqueTags, mockBlogPosts } from "@/data/blogPosts";
+import { getUniqueTags, getBlogPostList } from "@/lib/blog";
+import { toSentenceCase } from "@/lib/utils";
 import { BlogPost } from "@/types/blog.types";
 import React from "react";
 
-export default function Topics() {
-  const filteredPosts = mockBlogPosts;
+export default async function Topics() {
+  const filteredPosts = await getBlogPostList();
   const uniqueTags = getUniqueTags(filteredPosts);
   const tagsMap = uniqueTags.reduce<Record<string, BlogPost[]>>((acc, tag) => {
     acc[tag] = filteredPosts.filter((post) => post.tags.includes(tag));
@@ -18,7 +19,9 @@ export default function Topics() {
       </h1>
       {uniqueTags.map((tag) => (
         <div key={tag} className="mt-16">
-          <h2 className="font-bold text-gray-900 text-lg mb-3">{tag}</h2>
+          <h2 className="font-bold text-gray-900 text-lg mb-3">
+            {toSentenceCase(tag)}
+          </h2>
           <ul className="space-y-6 mt-2">
             {tagsMap[tag]
               .sort(
@@ -33,6 +36,7 @@ export default function Topics() {
                     tags={post.tags}
                     publishedDate={post.publishedAt}
                     excerpt={post.excerpt}
+                    slug={post.slug}
                   />
                 </li>
               ))}
