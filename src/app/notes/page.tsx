@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Notes() {
   return (
     <main className="flex flex-col">
-      <h1 className="text-lg font-semibold text-gray-950 mb-3 w-[120px]">
+      <h1 className="text-lg font-semibold text-gray-950 mb-3">
         Notes
       </h1>
       <FilterableBlogPostList mockBlogPosts={mockBlogPosts} />
