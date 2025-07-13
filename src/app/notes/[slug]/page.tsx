@@ -25,7 +25,11 @@ export default async function Page({
   const { slug } = await params;
   const { content } = await loadBlogPost(slug);
 
-  return <MDXRemote source={content} />;
+  return (
+    <article className="prose prose-gray max-w-none">
+      <MDXRemote source={content} />
+    </article>
+  );
 }
 
 // TODO:
