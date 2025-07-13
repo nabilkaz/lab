@@ -1,6 +1,6 @@
 import FilterableBlogPostList from "@/components/FilterableBlogPostList/FilterableBlogPostList";
 import { TITLE } from "@/constants";
-import { getBlogPostList } from "@/helpers/file-helpers";
+import { getBlogPostList } from "@/lib/blog";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default async function Notes() {
   return (
     <main className="flex flex-col">
       <h1 className="text-lg font-semibold text-gray-950 mb-3">Notes</h1>
-      <FilterableBlogPostList mockBlogPosts={blogPosts} />
+      <FilterableBlogPostList blogPosts={blogPosts} />
     </main>
   );
 }

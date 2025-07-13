@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import type { BlogPost } from "@/types/blog.types";
+import type { BlogPost, Category } from "@/types/blog.types";
 import readingTime from "reading-time";
 
 export async function getBlogPostList() {
@@ -39,6 +39,22 @@ export async function loadBlogPost(slug: string) {
   const { data: frontmatter, content } = matter(rawContent);
 
   return { frontmatter, content };
+}
+
+export function getUniqueTags(posts: BlogPost[]): string[] {
+  const uniqueTags = new Set<string>();
+  posts.forEach(({ tags }) => {
+    tags.forEach((tag) => uniqueTags.add(tag));
+  });
+  return Array.from(uniqueTags);
+}
+
+export function getUniqueCategories(posts: BlogPost[]): Category[] {
+  const uniqueCategories = new Set<Category>();
+  posts.forEach(({ category }) => {
+    uniqueCategories.add(category);
+  });
+  return Array.from(uniqueCategories);
 }
 
 function readFile(localPath: string) {

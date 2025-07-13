@@ -1,4 +1,4 @@
-import { loadBlogPost } from "@/helpers/file-helpers";
+import { loadBlogPost } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata } from "next";
 

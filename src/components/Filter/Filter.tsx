@@ -7,12 +7,7 @@ import {
   FilterContainerProps,
 } from "./Filter.types";
 import { BlogPost } from "@/types";
-import { getUniqueCategories } from "@/data/blogPosts";
-
-// Helper function to capitalize first letter
-const capitalizeFirst = (str: string): string => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
+import { capitalizeFirst } from "@/lib/utils";
 
 // Generic filter component that works with any list
 export function GenericFilter<T>({
@@ -80,7 +75,10 @@ export function GenericFilter<T>({
 
 // Specific implementation for blog posts
 export function BlogPostFilter({ posts, onFilterChange }: BlogPostFilterProps) {
-  const getCategories = getUniqueCategories;
+  const getCategories = () => {
+    const uniqueCategories = new Set(posts.map((post) => post.category));
+    return Array.from(uniqueCategories);
+  };
 
   const getItemCategories = (post: BlogPost) => [post.category];
 

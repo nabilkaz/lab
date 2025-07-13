@@ -5,12 +5,12 @@ import { BlogPost } from "@/types/blog.types";
 import { BlogPostFilter } from "../Filter/Filter";
 
 export default function FilterableBlogPostList({
-  mockBlogPosts,
+  blogPosts,
 }: {
-  mockBlogPosts: BlogPost[];
+  blogPosts: BlogPost[];
 }) {
   const [filteredPosts, setFilteredPosts] =
-    React.useState<BlogPost[]>(mockBlogPosts);
+    React.useState<BlogPost[]>(blogPosts);
   const sortedPosts = React.useMemo(
     () =>
       filteredPosts
@@ -25,7 +25,7 @@ export default function FilterableBlogPostList({
 
   return (
     <>
-      <BlogPostFilter posts={mockBlogPosts} onFilterChange={setFilteredPosts} />
+      <BlogPostFilter posts={blogPosts} onFilterChange={setFilteredPosts} />
       <ul className="w-full space-y-6 mt-8">
         {sortedPosts.map(
           ({ id, title, tags, publishedAt, excerpt, slug }: BlogPost) => (
