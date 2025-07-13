@@ -5,9 +5,9 @@ import type { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = params;
   const { frontmatter } = await loadBlogPost(slug);
   return {
     title: frontmatter.title, // TODO: make it have site name then add title
