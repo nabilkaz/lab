@@ -21,7 +21,7 @@ export function GenericFilter<T>({
   onFilterChange,
   getItemCategories,
 }: GenericFilterProps<T>) {
-  const availableCategories = getCategories(items);
+  const availableCategories = getCategories(items).sort();
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [isAllActive, setIsAllActive] = useState(true);
 
