@@ -13,6 +13,7 @@ export async function generateMetadata({
     title: frontmatter.title, // TODO: make it have site name then add title
     description: frontmatter.excerpt,
     // TODO: add open graph metadata
+    // https://vercel.com/docs/og-image-generation
   };
 }
 
