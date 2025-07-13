@@ -11,11 +11,9 @@ export default function Home() {
 
   return (
     <main className="flex flex-col">
-      <h1 className="text-lg font-semibold text-gray-950 mb-3 w-[120px]">
-        Notes
-      </h1>
+      <h1 className="text-lg font-semibold text-gray-950 mb-3">Notes</h1>
       <BlogPostFilter posts={mockBlogPosts} onFilterChange={setFilteredPosts} />
-      <ul className="w-full space-y-6 mt-8">
+      <ul className="space-y-6 mt-8">
         {filteredPosts
           .sort(
             (a, b) =>

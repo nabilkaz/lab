@@ -1,7 +1,10 @@
+"use client";
 import React, { ComponentProps } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavigationItemProps = ComponentProps<"a"> & {
-  active?: boolean;
+  href: `/${string}` | `https://${string}` | `http://${string}`;
   children: React.ReactNode;
 };
 
@@ -23,19 +26,18 @@ export function NavigationList({
   );
 }
 
-export function NavigationItem({
-  active = false,
-  children,
-}: NavigationItemProps) {
+export function NavigationItem({ href, children }: NavigationItemProps) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
   return (
     <li
       className={`text-sm font-medium pb-1 border-b-2 transition-all w-full sm:w-auto text-center sm:text-left ${
-        active
+        isActive
           ? "border-gray-950 text-gray-950"
           : "border-transparent text-gray-700 hover:border-gray-400 hover:text-gray-950"
       }`}
     >
-      <a>{children}</a>
+      <Link href={href}>{children}</Link>
     </li>
   );
 }
